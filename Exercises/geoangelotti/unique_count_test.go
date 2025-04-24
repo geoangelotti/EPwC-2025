@@ -10,6 +10,7 @@ func TestEvaluatePolynomial(t *testing.T) {
 	unique1 := epwc.UniqueCountSortSlice(input)
 	unique2 := epwc.UniqueCountSlicesSort(input)
 	unique3 := epwc.UniqueCountMap(input)
+	unique4 := epwc.UniqueCountSlicesSortCompact(input)
 	res := 4
 	if res != unique1 {
 		t.Errorf("Expected %v but got %v", res, unique1)
@@ -19,6 +20,9 @@ func TestEvaluatePolynomial(t *testing.T) {
 	}
 	if res != unique3 {
 		t.Errorf("Expected %v but got %v", res, unique3)
+	}
+	if res != unique4 {
+		t.Errorf("Expected %v but got %v", res, unique4)
 	}
 }
 
@@ -33,6 +37,13 @@ func BenchmarkUniqueSlicesSort(b *testing.B) {
 	input := []int{1, 3, 1, 4, 1, 5}
 	for b.Loop() {
 		_ = epwc.UniqueCountSlicesSort(input)
+	}
+}
+
+func BenchmarkUniqueSlicesSortCompact(b *testing.B) {
+	input := []int{1, 3, 1, 4, 1, 5}
+	for b.Loop() {
+		_ = epwc.UniqueCountSlicesSortCompact(input)
 	}
 }
 

@@ -44,3 +44,8 @@ func UniqueCountMap(data []int) int {
 	}
 	return len(uniques)
 }
+
+func UniqueCountSlicesSortCompact(data []int) int {
+	slices.Sort(data)
+	return len(slices.Compact(data))
+}
