@@ -5,7 +5,7 @@ import (
 	"sort"
 )
 
-func UniqueCount1(data []int) int {
+func UniqueCountSortSlice(data []int) int {
 	sort.Slice(data, func(i, j int) bool {
 		return data[i] < data[j]
 	})
@@ -21,7 +21,7 @@ func UniqueCount1(data []int) int {
 	return count
 }
 
-func UniqueCount2(data []int) int {
+func UniqueCountSlicesSort(data []int) int {
 	slices.Sort(data)
 	if len(data) == 0 {
 		return 0
@@ -35,7 +35,7 @@ func UniqueCount2(data []int) int {
 	return count
 }
 
-func UniqueCount3(data []int) int {
+func UniqueCountMap(data []int) int {
 	uniques := make(map[int]bool)
 	for _, num := range data {
 		if !uniques[num] {
